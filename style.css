@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #f1f1f1;
+}
+
+.NewGame{
+    
+        border: 1px solid black;
+        background: linear-gradient(to right, rgb(101, 90, 138) 50%, white 50%);
+}
+
+.cardScore{
+    margin-left: auto;      
+    margin-right: auto;
+    width: 10rem;
+}
+
+.rowPrincipal{
+    height: 40rem;
+}
