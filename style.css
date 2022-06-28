@@ -29,3 +29,31 @@ body {
 .hauteurScore{
     height: 5rem;
 }
+
+
+ .playGamePlayer2{
+    display: none;
+}
+
+.playGamePlayer1  {
+    display: none;
+    animation-duration: .8s;
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    transition: none;
+ }
+ @keyframes clignoter {
+   0%   { opacity:1; }
+   40%   {opacity:0; }
+   100% { opacity:1; }
+ }
+ #animeDice{
+    display: none;
+    height:20rem ;
+ }
+
+ #staticDice{
+    
+    
+    height:10rem ;
+ }
