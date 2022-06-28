@@ -20,66 +20,66 @@
 </head>
 <body>
 
-    <div class="principal NewGame">
+    <div class="principal ">
 
-        <!-- bouton New Game -->
-        <!-- <div class="container text-center card mt-5 NewGame" >
-            <div class="row">
-         
-                
-            </div>
-        </div> -->
+      
+        <div class="container text-center card my-5 NewGame " >
 
-        <div class="container text-center card my-5 NewGame" >
             <div class="row rowPrincipal "  >
 
+                <!-- player1 -->
                 <div class="col-md-4 my-5 ">
                     <div>
-                        <h1 class="mx-4 display-6" style="height: 10rem;">PLAYER 1</H1>
+                        <h1 class="mx-4 display-6 hauteurPlayer">PLAYER 1</H1>
                     </div>
                     <div>
-                        <h1 class="mx-4 mb-5 display-6" style="height: 5rem;">43</H1>
+                        <h1  id="scoreFinalPlayer1" class="mx-4 mb-5 display-6 hauteurScore" >0</H1>
                     </div>
                   
                         <div class="card text-center cardScore" >
                             <div class="card-body ">
                                 <p >Current</p>
-                                <p>43</p>
+                                <p id="scorePlayer1">0</p>
                             </div>
                      
                         </div>
                 </div>
 
-
+                <!--  Commande principal -->
 
                 <div class="col-md-4 my-1"> 
                     <div> 
-                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                        <i id="newGameIcon" class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
                         <span class="mx-4 display-6">New game </span>
                     </div>
                  
-                    <iframe src="https://embed.lottiefiles.com/animation/14109"></iframe>
+                    <iframe style="height:20rem ;" src="https://embed.lottiefiles.com/animation/14109"></iframe>
                     <div> 
-                        <i class="fa fa-recycle fa-2x" aria-hidden="true"></i>
-                        <span class="mx-4 display-6">New game </span>
+                        <i class="fa fa-recycle fa-2x" style="height:10rem ;" aria-hidden="true"></i>
+                        <span class="mx-4 display-6" style="height:15rem ;">New game </span>
                     </div>
 
                     <div> 
-                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                        <i class="fa fa-plus-circle fa-2x " aria-hidden="true"></i>
                         <span class="mx-4 display-6">New game </span>
                     </div>
                
                 </div>
 
+                <!-- player 2 -->
 
-
-                  <div class="col-md-4 my-5 ">
-                    <h1 class="mx-4 display-6">PLAYER 2</H1>
-                    <h1 class="mx-4 mb-5 display-6">13</H1>
-                        <div class="card text-center cardScore">
+                <div class="col-md-4 my-5 ">
+                    <div>
+                        <h1 class="mx-4 display-6 hauteurPlayer2 hauteurPlayer">PLAYER 2</H1>
+                    </div>
+                    <div>
+                        <h1  id="scoreFinalPlayer2" class="mx-4 mb-5 display-6 hauteurScore">0</H1>
+                    </div>
+                  
+                        <div class="card text-center cardScore" >
                             <div class="card-body ">
                                 <p >Current</p>
-                                <p>43</p>
+                                <p id="scorePlayer2">0</p>
                             </div>
                      
                         </div>
