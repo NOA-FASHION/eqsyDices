@@ -130,7 +130,28 @@ function analyseScore(scoreCurrent){
     }
 }
 
+function saveScoreFinal(){
 
+    if(choicePlayerBool){
+        scoreFinalPlayer1=scoreFinalPlayer1+scorePlayer1;
+        scoreFinalsChangePlayer1.innerText=scoreFinalPlayer1.toString();
+        modifPlayerInterface();
+        choicePlayerBool=false;
+        scorePlayer1=0;
+        scoreChangePlayer1.innerText=scorePlayer1.toString();
+        analyseScore(scoreFinalPlayer1);
+        
+    }else{
+        scoreFinalPlayer2=scoreFinalPlayer2+scorePlayer2;
+        scoreFinalsChangePlayer2.innerText=scoreFinalPlayer2.toString();
+        modifPlayerInterface();
+        choicePlayerBool=true;
+        scorePlayer2=0;
+        scoreChangePlayer2.innerText=scorePlayer2.toString();
+        analyseScore(scoreFinalPlayer2);
+        }
+
+}
 
 function modifPlayerInterface(){
 
