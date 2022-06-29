@@ -33,6 +33,10 @@ body {
 
  .playGamePlayer2{
     display: none;
+    animation-duration: .8s;
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    transition: none;
 }
 
 .playGamePlayer1  {
