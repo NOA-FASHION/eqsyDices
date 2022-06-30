@@ -10,7 +10,7 @@ let playPlayer1=document.querySelector('.playGamePlayer1');
 let playPlayer2=document.querySelector('.playGamePlayer2');
 let staticDice=document.querySelector('#staticDice');
 let animeDice=document.querySelector('#animeDice');
-let choicePlayerBool;
+let choicePlayerBool=null;
 let scoreFinalPlayer1;
 let scorePlayer1;
 let scoreFinalPlayer2;
@@ -41,16 +41,53 @@ function startGame(){
     scoreFinalsChangePlayer2.innerText=scoreFinalPlayer2.toString();
     scoreChangePlayer2.innerText=scorePlayer2.toString();
     playPlayer1.style.display = "block";
+    playPlayer2.style.display = "none";
+
+
+}
+// animation pictureDice randam
+ function animeDicePicture(score){
+    switch(score) {
+        case 1:
+         
+            staticDice.src="img/1.png";
+            break;
+        case 2:
+          
+            staticDice.src="img/2.png";
+            break;
+        case 3:
+       
+            staticDice.src="img/3.png";
+            break;
+        case 4:
+           
+            staticDice.src="img/4.png";
+            break;
+        case 5:
+           
+            staticDice.src="img/5.png";
+            break;
+        case 6:
+        
+            staticDice.src="img/6.png";
+        break;
+
+        default:
+            'Wops, cas innatendu.';
+
+    }
 
 
 }
 
 // Animation dice
-async function playGameAnime (){
+async function playGameAnime (score){
 
     staticDice.style.display = "none";
     animeDice.style.display = "inline-block";  
-    await sleep(2000);
+    animeDicePicture(score);
+    await sleep(500);
     playGamestatic();
 }
 
@@ -67,8 +104,13 @@ function sleep(ms) {
 
 //  return random numner
  function playRandom(){
-    var score=numberRandom(1,4);
-    playGameAnime ()
+if(choicePlayerBool===null){
+    window.alert("Cliquez sur nouveau jeu pour démarrer");
+    return;
+}
+    
+    var score=numberRandom(1,6);
+    playGameAnime (score)
     choicePlayer(score);
 
  }
@@ -130,7 +172,12 @@ function analyseScore(scoreCurrent){
     }
 }
 
+
 function saveScoreFinal(){
+    if(choicePlayerBool===null){
+        window.alert("Cliquez sur nouveau jeu pour démarrer");
+        return;
+    }
 
     if(choicePlayerBool){
         scoreFinalPlayer1=scoreFinalPlayer1+scorePlayer1;

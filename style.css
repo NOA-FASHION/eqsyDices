@@ -12,11 +12,29 @@ body {
     
         border: 1px solid black;    
 }
+.saveScore{
+    width: 20rem;
+}
 
 .cardScore{
+    padding-top: 20px;
     margin-left: auto;      
     margin-right: auto;
     width: 10rem;
+}
+.cardPlayer{
+    padding-top: 20px;
+    margin-bottom: 1rem;
+    margin-left: auto;      
+    margin-right: auto;
+    width: 15rem;
+}
+.cardNewGame{
+    padding: 10px;
+    margin-left: auto;      
+    margin-right: auto;
+    width: 18rem;
+
 }
 
 .rowPrincipal{
@@ -24,7 +42,7 @@ body {
 }
 
 .hauteurPlayer{
-    height: 10rem;
+    height: 7rem;
 }
 .hauteurScore{
     height: 5rem;
