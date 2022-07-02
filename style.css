@@ -9,11 +9,19 @@ body {
 
 
 .NewGame{
-    
         border: 1px solid black;    
+        width: 1000px; 
+        max-width: 1000px; 
+      margin-top: 50px;
 }
+
 .saveScore{
-    width: 20rem;
+    width: 18rem;
+    margin-left: auto;     
+    margin-right: auto;
+}
+.widthRowPlayer{
+    width: 1000px;
 }
 
 .cardScore{
@@ -22,12 +30,15 @@ body {
     margin-right: auto;
     width: 10rem;
 }
+.responsiveLetter{
+    font-size: 29px; 
+}
 .cardPlayer{
     padding-top: 20px;
     margin-bottom: 1rem;
     margin-left: auto;      
     margin-right: auto;
-    width: 15rem;
+    width: 300px;
 }
 .cardNewGame{
     padding: 10px;
@@ -37,14 +48,15 @@ body {
 
 }
 
-.rowPrincipal{
-    height: 40rem;
-}
+/* .rowPrincipal{
+    height: 50rem;
+} */
 
-.hauteurPlayer{
+/* .hauteurPlayer{
     height: 7rem;
-}
+} */
 .hauteurScore{
+  
     height: 5rem;
 }
 
@@ -78,4 +90,65 @@ body {
     
     
     height:10rem ;
+ }
+
+ #newGameDivMobile{
+    width: 250px;
+ }
+ #playMobile{
+    width: 200px;
+ }
+ #saveMobile{
+    width: 200px;
+ }
+ .RowButtonMobile{
+    display: none;
+}
+.rowAnimeAndPictureDice{
+  
+    display: none;
+}
+#animeDiceMobile{
+    display: none;
+}
+#staticDiceMobile{
+    width: 100px;
+}
+.colPlayerMobile{
+  
+    display: none; 
+}
+
+.cardPlayerMobile{
+    padding-top: 20px;
+    margin-bottom: 1rem;
+    margin-left: auto;      
+    margin-right: auto;
+    width: 600px;
+}
+ @media screen and (max-width: 768px) {
+
+        /* .mobileDisplayNoneButton{
+            display: none;
+        } */
+
+        /* .mobileDisplayNonePlayer{
+            display: none;
+        } */
+
+        .widthRowPlayer{
+            display: none;
+        }
+       
+        .RowButtonMobile{
+            display: block;
+        }
+    
+        .rowAnimeAndPictureDice{
+            display: block;
+        }
+        .colPlayerMobile{
+            display: block; 
+        }
+
  }

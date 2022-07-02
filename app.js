@@ -1,8 +1,17 @@
-const newGame=document.getElementById('newGameIcon');
+const newGame=document.getElementById('newGameDiv');
+const newGameMobile=document.getElementById('newGameDivMobile');
 const play=document.getElementById('play');
+const playMobile=document.getElementById('playMobile');
 const save=document.getElementById('save');
+const saveMobile=document.getElementById('saveMobile');
 const changeColors=document.querySelector('.NewGame');
+const colorsMobilePlayer1=document.querySelector('.colorsMobilePlayer1');
+const colorsMobilePlayer2=document.querySelector('.colorsMobilePlayer2');
 const scoreFinalsChangePlayer1=document.getElementById('scoreFinalPlayer1');
+const scoreCurrentPlayerMobile=document.getElementById('scoreCurrentPlayerMobile');
+const scoreFinal1Mobile=document.getElementById('scoreFinal1Mobile');
+const scoreFinal2Mobile=document.getElementById('scoreFinal2Mobile');
+const modifStringPlayer1=document.getElementById('modifStringPlayer1');
 const scoreChangePlayer1=document.getElementById('scorePlayer1');
 const scoreFinalsChangePlayer2=document.getElementById('scoreFinalPlayer2');
 const scoreChangePlayer2=document.getElementById('scorePlayer2');
@@ -15,34 +24,61 @@ let scoreFinalPlayer1;
 let scorePlayer1;
 let scoreFinalPlayer2;
 let scorePlayer2;
+let mobileBool;
+
 
 // startGame
-newGame.addEventListener('click', startGame);
+
+newGame.addEventListener('click', function() {
+    mobileBool=false;
+    startGame(mobileBool)
+  });
+
+  newGameMobile.addEventListener('click', function() {
+    mobileBool=true;
+    startGame(mobileBool)
+  });
 
 // push playDice
 play.addEventListener('click', playRandom);
 
+playMobile.addEventListener('click', playRandomMobile);
 // push saveScoreFinal
 save.addEventListener('click', saveScoreFinal);
 
-
+saveMobile.addEventListener('click', saveScoreFinalMobile);
 // Start game
 
-function startGame(){
-    choicePlayerBool=true;
-    scoreFinalPlayer1=0;
-    scorePlayer1=0;
-    scoreFinalPlayer2=0;
-    scorePlayer2=0;
-    changeColors.style.background = "linear-gradient(to right, rgb(101, 90, 138) 50%, white 50%)";
-
-    scoreFinalsChangePlayer1.innerText=scoreFinalPlayer1.toString();
-    scoreChangePlayer1.innerText=scorePlayer1.toString();
-    scoreFinalsChangePlayer2.innerText=scoreFinalPlayer2.toString();
-    scoreChangePlayer2.innerText=scorePlayer2.toString();
-    playPlayer1.style.display = "block";
-    playPlayer2.style.display = "none";
-
+function startGame(mobileBool){
+    if(!mobileBool){ choicePlayerBool=true;
+        scoreFinalPlayer1=0;
+        scorePlayer1=0;
+        scoreFinalPlayer2=0;
+        scorePlayer2=0;
+        changeColors.style.background = "linear-gradient(to right, rgb(101, 90, 138) 50%, white 50%)";
+    
+        scoreFinalsChangePlayer1.innerText=scoreFinalPlayer1.toString();
+        scoreChangePlayer1.innerText=scorePlayer1.toString();
+        scoreFinalsChangePlayer2.innerText=scoreFinalPlayer2.toString();
+        scoreChangePlayer2.innerText=scorePlayer2.toString();
+        playPlayer1.style.display = "block";
+        playPlayer2.style.display = "none";
+        }
+        else if (mobileBool)
+        {
+            choicePlayerBool=true;
+            scoreFinalPlayer1=0;
+            scorePlayer1=0;
+            scoreFinalPlayer2=0;
+            scorePlayer2=0;
+            scoreCurrentPlayerMobile.innerText=scorePlayer1.toString();
+            scoreFinal1Mobile.innerText=scoreFinalPlayer1.toString();
+            scoreFinal2Mobile.innerText=scoreFinalPlayer2.toString();
+            modifStringPlayer1.innerText="PLAYER 1";
+            colorsMobilePlayer1.style.background = "green";
+            changeColors.style.background = "white";
+        }
+   
 
 }
 // animation pictureDice randam
@@ -78,9 +114,41 @@ function startGame(){
 
     }
 
-
 }
 
+function animeDicePictureMobile(score){
+    switch(score) {
+        case 1:
+         
+            staticDiceMobile.src="img/1.png";
+            break;
+        case 2:
+          
+            staticDiceMobile.src="img/2.png";
+            break;
+        case 3:
+       
+            staticDiceMobile.src="img/3.png";
+            break;
+        case 4:
+           
+            staticDiceMobile.src="img/4.png";
+            break;
+        case 5:
+           
+            staticDiceMobile.src="img/5.png";
+            break;
+        case 6:
+        
+            staticDiceMobile.src="img/6.png";
+        break;
+
+        default:
+            'Wops, cas innatendu.';
+
+    }
+
+}
 // Animation dice
 async function playGameAnime (score){
 
@@ -90,12 +158,24 @@ async function playGameAnime (score){
     await sleep(500);
     playGamestatic();
 }
+async function playGameAnimeMobile (score){
+
+    staticDiceMobile.style.display = "none";
+    animeDiceMobile.style.display = "inline-block";  
+    animeDicePictureMobile(score);
+    await sleep(500);
+    playGamestaticMobile();
+}
 
 
 // desactive animation dice
 function playGamestatic (){
     animeDice.style.display = "none";
     staticDice.style.display = "inline";
+}
+function playGamestaticMobile (){
+    animeDiceMobile.style.display = "none";
+    staticDiceMobile.style.display = "inline";
 }
 
 function sleep(ms) {
@@ -114,6 +194,17 @@ if(choicePlayerBool===null){
     choicePlayer(score);
 
  }
+ function playRandomMobile(){
+    if(choicePlayerBool===null){
+        window.alert("Cliquez sur nouveau jeu pour démarrer");
+        return;
+    }
+        
+        var score=numberRandom(1,6);
+        playGameAnimeMobile (score)
+        choicePlayerMobile(score);
+    
+     }
 
 //  play dice
  function numberRandom(min, max)
@@ -162,6 +253,44 @@ function choicePlayer(scoreRandom){
 
 }
 
+function choicePlayerMobile(scoreRandom){
+    if( choicePlayerBool){
+
+        if(scoreRandom>1){
+            scorePlayer1=scorePlayer1+scoreRandom;
+            scoreCurrentPlayerMobile.innerText=scorePlayer1.toString();
+            analyseScore(scorePlayer1);
+
+        }else{
+            scoreFinalPlayer1=0;
+            scorePlayer1=0;
+            scoreCurrentPlayerMobile.innerText=scorePlayer1.toString();
+            scoreFinal1Mobile.innerText=scoreFinalPlayer1.toString();
+            choicePlayerBool=false;
+            modifPlayerInterfaceMobile();
+            // return;
+        }
+ 
+    }else{
+        if(scoreRandom>1){
+            scorePlayer2=scorePlayer2+scoreRandom;
+            scoreCurrentPlayerMobile.innerText=scorePlayer2.toString();
+            analyseScore(scorePlayer2);
+        }else{
+            scoreFinalPlayer2=0;
+            scorePlayer2=0;
+            scoreFinal2Mobile.innerText=scoreFinalPlayer2.toString();
+            scoreCurrentPlayerMobile.innerText.innerText=scorePlayer2.toString();
+            choicePlayerBool=true;
+            modifPlayerInterfaceMobile();
+            // return;
+
+        }
+       
+    }
+
+}
+
 function analyseScore(scoreCurrent){
     if( scoreCurrent>100){
         if(choicePlayerBool){
@@ -200,6 +329,36 @@ function saveScoreFinal(){
 
 }
 
+function saveScoreFinalMobile(){
+    if(choicePlayerBool===null){
+        window.alert("Cliquez sur nouveau jeu pour démarrer");
+        return;
+    }
+
+    if(choicePlayerBool){
+        scoreFinalPlayer1=scoreFinalPlayer1+scorePlayer1;
+        scoreFinal1Mobile.innerText=scoreFinalPlayer1.toString();
+        
+        choicePlayerBool=false;
+        scorePlayer1=0;
+        scoreCurrentPlayerMobile.innerText=scorePlayer1.toString();
+        modifPlayerInterfaceMobile();
+        analyseScore(scoreFinalPlayer1);
+        
+    }else{
+        scoreFinalPlayer2=scoreFinalPlayer2+scorePlayer2;
+        scoreFinal2Mobile.innerText=scoreFinalPlayer2.toString();
+        modifPlayerInterfaceMobile();
+        choicePlayerBool=true;
+        scorePlayer2=0;
+        scoreCurrentPlayerMobile.innerText=scorePlayer2.toString();
+        modifPlayerInterfaceMobile();
+        analyseScore(scoreFinalPlayer2);
+        }
+
+}
+
+
 function modifPlayerInterface(){
 
     if(choicePlayerBool){
@@ -210,5 +369,21 @@ function modifPlayerInterface(){
         changeColors.style.background = "linear-gradient(to right, rgb(101, 90, 138) 50%, white 50%)";
         playPlayer1.style.display = "block";
         playPlayer2.style.display = "none";
+    }
+}
+function modifPlayerInterfaceMobile(){
+
+    if(choicePlayerBool){
+        
+        modifStringPlayer1.innerText="PLAYER 1";
+        colorsMobilePlayer1.style.background = "green";
+        colorsMobilePlayer2.style.background = "white";
+        changeColors.style.background = "white";
+    }else {
+        modifStringPlayer1.innerText="PLAYER 2";
+        colorsMobilePlayer2.style.background = "green";
+        colorsMobilePlayer1.style.background = "white";
+        changeColors.style.background = "white";
+       
     }
 }
