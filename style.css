@@ -140,9 +140,10 @@ body {
 
         display: block; 
     }
-    .NewGame{
-        background-color: blue;
-        }
+    .widthRowPlayer{
+        display: none;
+    }
+ 
 
 }
  @media screen and (max-width: 768px) {
@@ -150,8 +151,5 @@ body {
     .cardPlayerMobile{
         width: 300px;
     }
-    .NewGame{
-     background-color: blue;
-     }
 
  }

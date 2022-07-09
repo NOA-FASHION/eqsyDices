@@ -238,7 +238,6 @@ function choicePlayer(scoreRandom){
 }
 
 
-
 function analyseScore(scoreCurrent){
     if( scoreCurrent>100){
         if(choicePlayerBool){
@@ -262,29 +261,27 @@ function saveScoreFinal(){
     if(choicePlayerBool){
         scoreFinalPlayer1=scoreFinalPlayer1+scorePlayer1;
         scoreFinalsChangePlayer1.innerText=scoreFinalPlayer1.toString();
-        modifPlayerInterface();
         analyseScore(scoreFinalPlayer1);
         choicePlayerBool=false;
         scorePlayer1=0;
         scoreChangePlayer1.innerText=scorePlayer1.toString();
-       
+        modifPlayerInterface();
         
     }else{
         scoreFinalPlayer2=scoreFinalPlayer2+scorePlayer2;
         scoreFinalsChangePlayer2.innerText=scoreFinalPlayer2.toString();
-        modifPlayerInterface();
         analyseScore(scoreFinalPlayer2);
         choicePlayerBool=true;
         scorePlayer2=0;
         scoreChangePlayer2.innerText=scorePlayer2.toString();
         analyseScore(scoreFinalPlayer2);
+        modifPlayerInterface();
         }
 
 }
 
 function modifPlayerInterface(){
-
-    if(choicePlayerBool){
+    if(!choicePlayerBool){
         changeColors.style.background = "linear-gradient(to right, white 50%, rgb(101, 90, 138) 50%)";
         playPlayer1.style.display = "none";
         playPlayer2.style.display = "block";
@@ -294,7 +291,6 @@ function modifPlayerInterface(){
         playPlayer2.style.display = "none";
     }
 }
-
 
 
 ///////////////////////////////////////////////////////// mobile logique
@@ -412,3 +408,39 @@ function playRandomMobile(){
             }
     
     }
+
+
+    ///////////////////////////responsive data
+
+    function myFunction(x) {
+        if (x.matches) { 
+            changeColors.style.background = "white";
+            if(choicePlayerBool){
+                scoreCurrentPlayerMobile.innerText=scorePlayer1.toString();
+            }else{
+                scoreCurrentPlayerMobile.innerText=scorePlayer2.toString();
+            }
+            scoreFinal1Mobile.innerText=scoreFinalPlayer1.toString();
+            scoreFinal2Mobile.innerText=scoreFinalPlayer2.toString();
+            modifPlayerInterfaceMobile();
+        }else{
+            scoreFinalPlayer2=scoreFinalPlayer2+scorePlayer2;
+            scoreFinalsChangePlayer2.innerText=scoreFinalPlayer2.toString();
+            scoreFinalPlayer1=scoreFinalPlayer1+scorePlayer1;
+            scoreFinalsChangePlayer1.innerText=scoreFinalPlayer1.toString();
+            modifPlayerInterface();
+        }
+     
+
+      }
+      
+      var x = window.matchMedia("(max-width: 991px)")
+    //   myFunction(x) 
+    //   x.addListener(myFunction) 
+
+
+    x.addEventListener("change", () => {
+        myFunction(x) ;
+    });
+
+   
