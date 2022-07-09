@@ -210,10 +210,11 @@ function choicePlayer(scoreRandom){
         }else{
             scoreFinalPlayer1=0;
             scorePlayer1=0;
-            modifPlayerInterface();
+            
             scoreFinalsChangePlayer1.innerText=scoreFinalPlayer1.toString();
             scoreChangePlayer1.innerText=scorePlayer1.toString();
             choicePlayerBool=false;
+            modifPlayerInterface();
             // return;
         }
  
@@ -229,6 +230,7 @@ function choicePlayer(scoreRandom){
             scoreFinalsChangePlayer2.innerText=scoreFinalPlayer2.toString();
             scoreChangePlayer2.innerText=scorePlayer2.toString();
             choicePlayerBool=true;
+            modifPlayerInterface();
             // return;
 
         }
