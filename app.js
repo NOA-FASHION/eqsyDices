@@ -414,7 +414,7 @@ function playRandomMobile(){
 
     ///////////////////////////responsive data
 
-    function myFunction(x) {
+    function ResponsiveData(x) {
         if (x.matches) { 
             changeColors.style.background = "white";
             if(choicePlayerBool){
@@ -442,7 +442,7 @@ function playRandomMobile(){
 
 
     x.addEventListener("change", () => {
-        myFunction(x) ;
+        ResponsiveData(x) ;
     });
 
    
